@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Character encoding for proper text display -->
+    <meta charset="UTF-8">
+    <!-- Makes website responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page title shown in browser tab -->
+    <title>Retention Intelligence</title>
+    
+    <!-- Link to external CSS file for styling -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background decorative glowing elements -->
+    <div class="background-glow glow-1"></div>
+    <div class="background-glow glow-2"></div>
+
+    <!-- Main application container -->
+    <div class="app">
+
+        <!-- ============================================ -->
+        <!-- LEFT SIDEBAR -->
+        <!-- ============================================ -->
+        <aside class="sidebar">
+
+            <!-- Brand logo and name -->
+            <div class="brand">
+                <div class="brand-icon">R</div>
+                <div>
+                    <h2>Retention</h2>
+                    <p>INTELLIGENCE</p>
+                </div>
+            </div>
+
+            <!-- Decorative line separator -->
+            <div class="sidebar-line"></div>
+
+            <!-- Description text in sidebar -->
+            <div class="sidebar-info">
+                <span>AI CUSTOMER ANALYTICS</span>
+                <p>
+                    Predict customer churn using
+                    machine learning insights.
+                </p>
+            </div>
+
+        </aside>
+
+        <!-- ============================================ -->
+        <!-- MAIN CONTENT AREA -->
+        <!-- ============================================ -->
+        <main class="main">
+
+            <!-- Top header section -->
+            <header class="topbar">
+                <div>
+                    <!-- Small label above title -->
+                    <p class="eyebrow">CUSTOMER ANALYTICS</p>
+                    
+                    <!-- Main heading -->
+                    <h1>
+                        Retention
+                        <span>Intelligence</span>
+                    </h1>
+                    
+                    <!-- Subtitle description -->
+                    <p class="subtitle">
+                        Turn customer data into actionable retention insights.
+                    </p>
+                </div>
+            </header>
+
+            <!-- ============================================ -->
+            <!-- SEARCH INPUT SECTION -->
+            <!-- ============================================ -->
+            <section class="search-section">
+
+                <div class="search-card">
+
+                    <!-- Search icon -->
+                    <div class="search-icon">⌕</div>
+
+                    <!-- Input field for customer ID -->
+                    <div class="search-content">
+                        <label for="customerId">CUSTOMER ID</label>
+                        <input
+                            type="text"
+                            id="customerId"
+                            placeholder="Enter customer ID..."
+                        >
+                    </div>
+
+                    <!-- Analyze button -->
+                    <button id="predictBtn">
+                        ANALYZE CUSTOMER
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+                <!-- Hint text below search box -->
+                <p class="hint">
+                    Enter a valid customer ID from the Telco customer dataset.
+                </p>
+
+            </section>
+
+            <!-- ============================================ -->
+            <!-- LOADING INDICATOR (hidden by default) -->
+            <!-- ============================================ -->
+            <div id="loading" class="loading hidden">
+                <div class="loader"></div>
+                <p>Analyzing customer behavior...</p>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- ERROR MESSAGE BOX (hidden by default) -->
+            <!-- ============================================ -->
+            <div id="errorBox" class="error-box hidden"></div>
+
+            <!-- ============================================ -->
+            <!-- RESULTS SECTION (hidden until prediction made) -->
+            <!-- ============================================ -->
+            <section id="resultSection" class="hidden">
+
+                <!-- Customer header with ID and prediction -->
+                <div class="customer-header">
+                    <div>
+                        <p class="eyebrow">CUSTOMER PROFILE</p>
+                        <h2 id="resultCustomerId">—</h2>
+                    </div>
+                    <!-- Badge showing churn risk (red or green) -->
+                    <div id="predictionBadge" class="prediction-badge">—</div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- TOP METRICS GRID -->
+                <!-- ============================================ -->
+                <div class="metrics-grid">
+
+                    <!-- Metric 1: Churn Probability -->
+                    <div class="metric-card">
+                        <div class="metric-label">CHURN PROBABILITY</div>
+                        <div class="metric-value">
+                            <span id="probability">0%</span>
+                        </div>
+                        <!-- Progress bar showing probability -->
+                        <div class="progress">
+                            <div id="probabilityBar" class="progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Metric 2: Customer Tenure -->
+                    <div class="metric-card">
+                        <div class="metric-label">TENURE</div>
+                        <div class="metric-value">
+                            <span id="tenure">—</span>
+                            <small>months</small>
+                        </div>
+                    </div>
+
+                    <!-- Metric 3: Monthly Charges -->
+                    <div class="metric-card">
+                        <div class="metric-label">MONTHLY CHARGES</div>
+                        <div class="metric-value">
+                            ₹<span id="monthlyCharges">—</span>
+                        </div>
+                    </div>
+
+                    <!-- Metric 4: Contract Type -->
+                    <div class="metric-card">
+                        <div class="metric-label">CONTRACT</div>
+                        <div id="contract" class="metric-text">—</div>
+                    </div>
+
+                </div>
+
+                <!-- ============================================ -->
+                <!-- DETAILED INFORMATION PANELS -->
+                <!-- ============================================ -->
+                <div class="insight-grid">
+
+                    <!-- Panel 1: Customer Profile Details -->
+                    <div class="panel">
+                        <div class="panel-title">
+                            <span class="panel-number">01</span>
+                            CUSTOMER PROFILE
+                        </div>
+                        
+                        <div class="details">
+                            <div>
+                                <span>Gender</span>
+                                <strong id="gender">—</strong>
+                            </div>
+                            <div>
+                                <span>Senior Citizen</span>
+                                <strong id="seniorCitizen">—</strong>
+                            </div>
+                            <div>
+                                <span>Partner</span>
+                                <strong id="partner">—</strong>
+                            </div>
+                            <div>
+                                <span>Dependents</span>
+                                <strong id="dependents">—</strong>
+                            </div>
+                            <div>
+                                <span>Internet Service</span>
+                                <strong id="internetService">—</strong>
+                            </div>
+                            <div>
+                                <span>Payment Method</span>
+                                <strong id="paymentMethod">—</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel 2: AI-Generated Retention Insight -->
+                    <div id="insightPanel" class="panel insight-panel">
+                        <div class="panel-title">
+                            <span class="panel-number">02</span>
+                            AI RETENTION INSIGHT
+                        </div>
+                        
+                        <div class="insight-content">
+                            <!-- Icon (✓ for stable, ! for at risk) -->
+                            <div id="insightIcon" class="insight-icon">✓</div>
+                            
+                            <div>
+                                <h3 id="insightTitle">Customer appears stable</h3>
+                                <p id="insightText">
+                                    Analyze the customer to generate retention insights.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ============================================ -->
+                <!-- SERVICES PANEL -->
+                <!-- ============================================ -->
+                <div class="panel services-panel">
+                    <div class="panel-title">
+                        <span class="panel-number">03</span>
+                        SUBSCRIBED SERVICES
+                    </div>
+                    <!-- Services will be dynamically added here by JavaScript -->
+                    <div id="services" class="services"></div>
+                </div>
+
+            </section>
+
+            <!-- ============================================ -->
+            <!-- EMPTY STATE (shown when no prediction yet) -->
+            <!-- ============================================ -->
+            <section id="emptyState" class="empty-state">
+                <div class="empty-icon">◈</div>
+                <h2>Ready to analyze</h2>
+                <p>
+                    Enter a customer ID above to generate
+                    a personalized churn prediction.
+                </p>
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Link to JavaScript file for functionality -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
